@@ -85,14 +85,18 @@ git checkout main
 git pull origin main
 ```
 
-## 단계 9: 배포 (사용자 확인 후)
+## 단계 9: 배포 (사용자 확인 후, tag 기반 CI/CD)
 - 배포 여부를 사용자에게 물어본다
-- 승인 시:
+- 승인 시 **로컬 검증 먼저 수행**:
+```bash
+cd /Users/younique/Develop/younique-ui
+npm run build
+grep "<name>" dist/index.d.ts
+```
+- 로컬 검증 통과 후 태그 생성 & 푸시 (CI가 자동 npm publish):
 ```bash
 cd /Users/younique/Develop/younique-ui
 npm version patch
-npm run build
-npm publish
 git push origin main --tags
 ```
 - 소비 프로젝트 업데이트가 필요하면 안내:
