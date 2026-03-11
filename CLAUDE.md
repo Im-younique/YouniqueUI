@@ -65,8 +65,22 @@ src/
 ### Git 워크플로우
 - 컴포넌트 단위로 feature 브랜치 생성: `feat/<name>`
 - 한국어 커밋 메시지, feat:/fix: 접두사
-- push → `gh pr create` → 리뷰/확인 → `gh pr merge --squash --delete-branch`
-- merge 후 `npm version patch && npm publish`
+- push → `gh pr create` → CI 빌드 통과 확인 → `gh pr merge --squash --delete-branch`
+
+### 배포 (tag 기반 CI/CD)
+- **직접 `npm publish` 하지 않는다.** GitHub Actions가 태그 푸시 시 자동 배포한다.
+- **태그 푸시 전 로컬 필수 확인 사항:**
+  1. `npm run build` — 빌드 성공 확인
+  2. `npm run dev` — Storybook에서 모든 컴포넌트 렌더링 확인
+  3. `dist/index.d.ts` — 타입 export 정상 확인
+- **배포 절차:**
+  1. 로컬 검증 완료 후 `npm version patch|minor|major`
+  2. `git push origin main --tags`
+  3. GitHub Actions (`publish.yml`)이 빌드 + npm publish 자동 실행
+- **CI 워크플로우:**
+  - `ci.yml`: PR → main 시 빌드 검증
+  - `publish.yml`: `v*.*.*` 태그 푸시 시 npm 배포
+- npm 배포에는 GitHub 레포 시크릿 `NPM_TOKEN` 필요
 
 ## 제외 항목
 - `sonner.tsx` — next-themes 의존성 (Next.js 전용, 각 앱에서 직접 설치)
