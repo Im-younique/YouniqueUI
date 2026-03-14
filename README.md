@@ -10,6 +10,7 @@ A beautifully designed React UI component library built on [shadcn/ui](https://u
 - 21 production-ready components
 - Built on [Base UI](https://base-ui.com/) unstyled primitives
 - Styled with [Tailwind CSS v4](https://tailwindcss.com/) and [CVA](https://cva.style/)
+- **Zero CSS import** — just install and use with Tailwind v4
 - Full TypeScript support with exported types
 - ESM and CJS dual output
 - Light and dark mode via CSS variables
@@ -22,15 +23,19 @@ A beautifully designed React UI component library built on [shadcn/ui](https://u
 npm install younique-ui
 ```
 
+### Peer Dependencies
+
+| Package | Version |
+|---------|---------|
+| `react` | ^18.0.0 \|\| ^19.0.0 |
+| `react-dom` | ^18.0.0 \|\| ^19.0.0 |
+| `tailwindcss` | ^4.0.0 |
+
 ## Quick Start
 
-Import the stylesheet once in your root layout:
+No CSS import needed. Your project's Tailwind CSS v4 automatically scans component classes via the module graph.
 
-```tsx
-import 'younique-ui/styles.css';
-```
-
-Then use the components:
+Just import and use:
 
 ```tsx
 import { Button, Card, CardHeader, CardTitle, CardContent } from 'younique-ui';
@@ -77,7 +82,7 @@ function App() {
 
 ## Theming
 
-younique-ui uses CSS custom properties (oklch color space) for theming. All components inherit from these variables:
+younique-ui uses CSS custom properties (oklch color space) for theming. Define these variables in your project's CSS:
 
 ```css
 :root {
@@ -90,21 +95,19 @@ younique-ui uses CSS custom properties (oklch color space) for theming. All comp
 }
 ```
 
-Override these in your own CSS to customize the theme. For dark mode, add a `.dark` class to your root element.
+Override these to customize the theme. For dark mode, add a `.dark` class to your root element.
 
-### Advanced: Using your own Tailwind config
+A reference theme file is available at `younique-ui/theme.css` if you need a starting point.
 
-If you already run Tailwind CSS v4, you can import only the theme variables instead of the full stylesheet:
+## Without Tailwind CSS
 
-```css
-@import 'younique-ui/theme.css';
+If your project does not use Tailwind CSS v4, you can import the pre-built stylesheet:
+
+```tsx
+import 'younique-ui/styles.css';
 ```
 
-Then add the library to your Tailwind content config:
-
-```
-node_modules/younique-ui/dist/**/*.js
-```
+This includes all utility classes and theme variables compiled into a single CSS file.
 
 ## Development
 

@@ -86,10 +86,8 @@ src/
 - `sonner.tsx` — next-themes 의존성 (Next.js 전용, 각 앱에서 직접 설치)
 
 ## 소비자 사용법
+소비 앱이 Tailwind CSS v4를 사용하고 동일한 테마 변수를 globals.css에 가지고 있으면, 별도 CSS import 없이 바로 사용 가능하다. Tailwind v4가 모듈 그래프를 통해 younique-ui 컴포넌트의 클래스를 자동 스캔한다.
 ```tsx
-// globals.css 또는 layout.tsx에서
-import 'younique-ui/styles.css';
-
-// 컴포넌트 사용
 import { Button, Card, Input } from 'younique-ui';
 ```
+Tailwind를 사용하지 않는 소비자는 `import 'younique-ui/styles.css'`로 프리빌트 CSS를 사용할 수 있다.
