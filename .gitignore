@@ -7,3 +7,6 @@ dist/
 .DS_Store
 .env.local
 *.log
+
+CLAUDE.md
+.claude/
