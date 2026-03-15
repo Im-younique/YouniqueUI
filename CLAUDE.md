@@ -64,8 +64,13 @@ src/
 
 ### Git 워크플로우
 - 컴포넌트 단위로 feature 브랜치 생성: `feat/<name>`
-- 한국어 커밋 메시지, feat:/fix: 접두사
+- 한국어 커밋 메시지, feat:/fix:/test: 접두사
 - push → `gh pr create` → CI 빌드 통과 확인 → `gh pr merge --squash --delete-branch`
+
+### 커밋 규칙 (필수)
+- **작업 단위별 분리 커밋**: 하나의 논리적 작업(이슈/기능)당 하나의 커밋
+- **Co-Authored-By 헤더 포함 금지**: 커밋 메시지에 Co-Authored-By 라인을 절대 추가하지 않는다
+- 절대 여러 작업을 하나의 커밋에 뭉치지 않기
 
 ### 배포 (tag 기반 CI/CD)
 - **직접 `npm publish` 하지 않는다.** GitHub Actions가 태그 푸시 시 자동 배포한다.
