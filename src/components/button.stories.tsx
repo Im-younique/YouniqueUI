@@ -64,8 +64,16 @@ export const Link: Story = {
 
 // -- Size 스토리 --
 
+export const SizeXS: Story = {
+  name: "크기: XS (h-7)",
+  args: {
+    size: "xs",
+    children: "아주 작은",
+  },
+}
+
 export const SizeSmall: Story = {
-  name: "크기: Small",
+  name: "크기: Small (h-8)",
   args: {
     size: "sm",
     children: "작은 버튼",
@@ -73,7 +81,7 @@ export const SizeSmall: Story = {
 }
 
 export const SizeDefault: Story = {
-  name: "크기: Default",
+  name: "크기: Default (h-9)",
   args: {
     size: "default",
     children: "기본 크기",
@@ -81,7 +89,7 @@ export const SizeDefault: Story = {
 }
 
 export const SizeLarge: Story = {
-  name: "크기: Large",
+  name: "크기: Large (h-10)",
   args: {
     size: "lg",
     children: "큰 버튼",
@@ -89,11 +97,23 @@ export const SizeLarge: Story = {
 }
 
 export const SizeIcon: Story = {
-  name: "크기: Icon",
+  name: "크기: Icon (size-9)",
   args: {
     size: "icon",
     children: <Plus className="size-4" />,
   },
+}
+
+export const AllSizes: Story = {
+  name: "전체 크기 비교",
+  render: () => (
+    <div className="flex items-center gap-3">
+      <Button size="xs">XS</Button>
+      <Button size="sm">Small</Button>
+      <Button size="default">Default</Button>
+      <Button size="lg">Large</Button>
+    </div>
+  ),
 }
 
 // -- 상태 스토리 --
