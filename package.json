@@ -1,6 +1,6 @@
 {
   "name": "younique-ui",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A beautifully designed React UI component library built on shadcn/ui and Base UI",
   "type": "module",
   "main": "./dist/index.cjs",
