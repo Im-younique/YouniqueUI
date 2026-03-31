@@ -86,11 +86,11 @@ younique-ui uses CSS custom properties (oklch color space) for theming. Define t
 
 ```css
 :root {
-  --primary: oklch(0.55 0.18 230);
-  --secondary: oklch(0.96 0.005 265);
-  --destructive: oklch(0.58 0.22 27);
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --primary: oklch(0.45 0.18 270);
+  --secondary: oklch(0.955 0.008 270);
+  --destructive: oklch(0.55 0.22 25);
+  --background: oklch(0.985 0.003 265);
+  --foreground: oklch(0.16 0.02 270);
   /* ... */
 }
 ```
