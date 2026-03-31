@@ -2,6 +2,10 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant data-open (&[data-open]);
+@custom-variant data-closed (&[data-closed]);
+@custom-variant data-starting-style (&[data-starting-style]);
+@custom-variant data-ending-style (&[data-ending-style]);
 
 @theme inline {
   --color-background: var(--background);
